@@ -40,5 +40,47 @@
     "title": "Combinations",
     "difficulty": "Medium",
     "sent_at": "2026-09-22T10:30:58.652272+00:00"
+  },
+  {
+    "slug": "search-insert-position",
+    "title": "Search Insert Position",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-22T18:18:16.925393+00:00"
+  },
+  {
+    "slug": "repeated-string-match",
+    "title": "Repeated String Match",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-22T18:18:16.925393+00:00"
+  },
+  {
+    "slug": "statistics-from-a-large-sample",
+    "title": "Statistics from a Large Sample",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-22T18:18:16.925393+00:00"
+  },
+  {
+    "slug": "slowest-key",
+    "title": "Slowest Key",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-22T18:18:16.925393+00:00"
+  },
+  {
+    "slug": "maximum-alternating-subsequence-sum",
+    "title": "Maximum Alternating Subsequence Sum",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-22T18:18:16.925393+00:00"
+  },
+  {
+    "slug": "lexicographically-smallest-string-after-applying-operations",
+    "title": "Lexicographically Smallest String After Applying Operations",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-22T18:18:16.925393+00:00"
+  },
+  {
+    "slug": "maximum-value-of-an-ordered-triplet-i",
+    "title": "Maximum Value of an Ordered Triplet I",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-22T18:18:16.925393+00:00"
   }
 ]
