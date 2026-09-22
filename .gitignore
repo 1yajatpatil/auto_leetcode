@@ -1,4 +1,5 @@
 .env
-state/
+state/problems_today.json
+state/email_body.html
 __pycache__/
 *.pyc

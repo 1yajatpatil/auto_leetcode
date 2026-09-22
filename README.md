@@ -66,12 +66,13 @@ All of these live in `.env` (uncomment to override the default in `config.py`):
 - `EASY_RATIO` -- fraction that should be Easy vs Medium (default 0.4 = 40% easy / 60% medium)
 - `RECIPIENT_EMAIL` / `SENDER_EMAIL` / `LEETCODE_USERNAME`
 
-## State files (in `state/`, git-ignored)
+## State files (in `state/`)
 
-- `sent_problems.json` -- every problem ever sent, so nothing repeats during the 6-month trial.
-- `problems_today.json` -- today's picked batch (regenerated each run).
-- `email_body.html` -- today's composed digest (regenerated each run).
-- `history.log` -- one line per successful send, for auditing the trial over time.
+- `sent_problems.json` -- every problem ever sent, so nothing repeats during the 6-month trial. **Committed to git** -- the cloud routine clones a fresh checkout every run, so this file must live in the repo (not `.gitignore`d) and gets committed + pushed back at the end of every run, or dedup would reset daily.
+- `history.log` -- one line per successful send, for auditing the trial over time. Also committed back each run for the same reason.
+- `problems_today.json` / `email_body.html` -- today's scratch files (regenerated each run). Git-ignored since they're transient.
+
+**This means the cloud routine's job each day is:** clone repo -> run `pick_problems.py` -> write explanations + `email_body.html` -> run `send_digest.py` -> `git add state/sent_problems.json state/history.log && git commit && git push` so tomorrow's run sees today's state.
 
 ## Notes / limitations
 
