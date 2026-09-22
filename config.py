@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent
 STATE_DIR = BASE_DIR / "state"
 STATE_DIR.mkdir(exist_ok=True)
 
-LEETCODE_USERNAME = os.environ.get("LEETCODE_USERNAME", "yajatpatil")
-SENDER_EMAIL = os.environ.get("SENDER_EMAIL", "yajatpatil80@gmail.com")
-RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL", "claude.wceit1@gmail.com")
+LEETCODE_USERNAME = os.environ.get("LEETCODE_USERNAME")
+SENDER_EMAIL = os.environ.get("SENDER_EMAIL")
+RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL")
 
 SMTP_APP_PASSWORD = os.environ.get("SMTP_APP_PASSWORD")
 SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
