@@ -23,7 +23,7 @@ keeps this on the right side of LeetCode's anti-bot terms.
    errors, either use a venv (`python3 -m venv .venv && source .venv/bin/activate`)
    or `pip install --break-system-packages -r requirements.txt`.
 
-2. **Generate a Gmail App Password for `yajatpatil80@gmail.com`**
+2. **Generate a Gmail App Password for your sending account** (set as `SENDER_EMAIL` in `.env`)
    - Turn on 2-Step Verification on that account if it isn't already: https://myaccount.google.com/security
    - Go to https://myaccount.google.com/apppasswords, create an app password (name it e.g. "maintainstreak"), copy the 16-character code.
    - This is **not** the account's normal login password -- it's a separate, revocable credential scoped to SMTP.
@@ -32,7 +32,7 @@ keeps this on the right side of LeetCode's anti-bot terms.
    ```bash
    cp .env.example .env
    ```
-   Open `.env` and paste the app password as `SMTP_APP_PASSWORD=...`. Leave the other lines commented out unless you want to change a default (recipient, problem count, etc).
+   Fill in `LEETCODE_USERNAME`, `SENDER_EMAIL`, `RECIPIENT_EMAIL`, and `SMTP_APP_PASSWORD` -- none of these have defaults in `config.py` (this repo may be public, so nothing personal is hardcoded).
 
 4. **Dry run** (does a real fetch + sends a real email, doesn't require the agent):
    ```bash
@@ -46,7 +46,7 @@ This project is designed to be driven by a **scheduled Claude Code cloud
 routine** (the `schedule` skill) so it runs daily without your laptop needing
 to be on. Set one up with a prompt along these lines:
 
-> Run in /home/thechosenone/maintainstreak. Run `python3 pick_problems.py` to
+> Run in the repo root. Run `python3 pick_problems.py` to
 > fetch today's problems into `state/problems_today.json`. Read that file,
 > then for each problem write a detailed, commute-readable explanation:
 > intuition/approach, a step-by-step walkthrough, time/space complexity, and
