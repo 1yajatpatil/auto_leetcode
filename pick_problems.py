@@ -10,7 +10,7 @@ import sys
 
 import config
 import state
-from leetcode_api import fetch_problem_detail, pick_random_problems
+from leetcode_api import pick_random_problems
 
 
 def main():
@@ -26,16 +26,18 @@ def main():
 
     enriched = []
     for q in picked:
-        detail = fetch_problem_detail(q["titleSlug"])
         enriched.append(
             {
-                "titleSlug": q["titleSlug"],
+                "titleSlug": q["problem_slug"],
                 "title": q["title"],
                 "difficulty": q["difficulty"],
-                "frontendQuestionId": q["frontendQuestionId"],
-                "link": f"https://leetcode.com/problems/{q['titleSlug']}/",
-                "content_html": detail["content"],
-                "topics": [t["name"] for t in detail.get("topicTags", [])],
+                "frontendQuestionId": q.get("frontend_id", ""),
+                "link": f"https://leetcode.com/problems/{q['problem_slug']}/",
+                "description": q.get("description", ""),
+                "examples": q.get("examples", []),
+                "constraints": q.get("constraints", []),
+                "hints": q.get("hints", []),
+                "topics": q.get("topics", []),
             }
         )
 

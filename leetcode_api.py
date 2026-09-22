@@ -2,81 +2,43 @@ import random
 
 import requests
 
-GRAPHQL_URL = "https://leetcode.com/graphql"
-HEADERS = {
-    "Content-Type": "application/json",
-    "Referer": "https://leetcode.com",
-    "User-Agent": "Mozilla/5.0 (maintainstreak-bot/1.0; personal practice digest)",
-}
+# LeetCode's own API/GraphQL endpoint is unreachable from the cloud routine's
+# sandboxed network (egress is blocked for leetcode.com entirely), so problem
+# data comes from a community-maintained mirror hosted on GitHub instead --
+# github.com/raw.githubusercontent.com is reachable from the sandbox since
+# that's also where this repo itself is cloned from/pushed to.
+DATASET_URL = "https://raw.githubusercontent.com/neenza/leetcode-problems/master/merged_problems.json"
 
-LIST_QUERY = """
-query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {
-  problemsetQuestionList: questionList(
-    categorySlug: $categorySlug
-    limit: $limit
-    skip: $skip
-    filters: $filters
-  ) {
-    total: totalNum
-    questions: data {
-      difficulty
-      frontendQuestionId: questionFrontendId
-      title
-      titleSlug
-      paidOnly: isPaidOnly
-    }
-  }
-}
-"""
-
-DETAIL_QUERY = """
-query questionData($titleSlug: String!) {
-  question(titleSlug: $titleSlug) {
-    questionFrontendId
-    title
-    titleSlug
-    content
-    difficulty
-    exampleTestcases
-    topicTags { name }
-    hints
-  }
-}
-"""
+_cache = None
 
 
-def _graphql(query, variables):
-    resp = requests.post(
-        GRAPHQL_URL, json={"query": query, "variables": variables}, headers=HEADERS, timeout=30
-    )
-    resp.raise_for_status()
-    data = resp.json()
-    if "errors" in data:
-        raise RuntimeError(f"LeetCode GraphQL error: {data['errors']}")
-    return data["data"]
-
-
-def fetch_problem_pool(difficulty, limit=300):
-    variables = {"categorySlug": "", "skip": 0, "limit": limit, "filters": {"difficulty": difficulty}}
-    data = _graphql(LIST_QUERY, variables)
-    questions = data["problemsetQuestionList"]["questions"]
-    return [q for q in questions if not q["paidOnly"]]
-
-
-def fetch_problem_detail(title_slug):
-    data = _graphql(DETAIL_QUERY, {"titleSlug": title_slug})
-    return data["question"]
+def _load_all_problems():
+    global _cache
+    if _cache is None:
+        resp = requests.get(DATASET_URL, timeout=90)
+        resp.raise_for_status()
+        _cache = resp.json()["questions"]
+    return _cache
 
 
 def pick_random_problems(count, easy_ratio, excluded_slugs):
-    n_easy = round(count * easy_ratio)
-    n_medium = count - n_easy
+    problems = _load_all_problems()
 
-    easy_pool = [q for q in fetch_problem_pool("EASY") if q["titleSlug"] not in excluded_slugs]
-    medium_pool = [q for q in fetch_problem_pool("MEDIUM") if q["titleSlug"] not in excluded_slugs]
+    def usable(p, difficulty):
+        return (
+            p.get("difficulty") == difficulty
+            and p.get("problem_slug") not in excluded_slugs
+            and p.get("description")
+        )
+
+    easy_pool = [p for p in problems if usable(p, "Easy")]
+    medium_pool = [p for p in problems if usable(p, "Medium")]
 
     random.shuffle(easy_pool)
     random.shuffle(medium_pool)
+
+    n_easy = round(count * easy_ratio)
+    n_medium = count - n_easy
 
     picked = easy_pool[:n_easy] + medium_pool[:n_medium]
 
