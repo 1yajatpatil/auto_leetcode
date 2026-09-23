@@ -82,5 +82,47 @@
     "title": "Maximum Value of an Ordered Triplet I",
     "difficulty": "Easy",
     "sent_at": "2026-09-22T18:18:16.925393+00:00"
+  },
+  {
+    "slug": "height-checker",
+    "title": "Height Checker",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-23T02:40:14.822371+00:00"
+  },
+  {
+    "slug": "find-the-town-judge",
+    "title": "Find the Town Judge",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-23T02:40:14.822371+00:00"
+  },
+  {
+    "slug": "strictly-palindromic-number",
+    "title": "Strictly Palindromic Number",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-23T02:40:14.822371+00:00"
+  },
+  {
+    "slug": "maximum-number-of-fish-in-a-grid",
+    "title": "Maximum Number of Fish in a Grid",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-23T02:40:14.822371+00:00"
+  },
+  {
+    "slug": "beautiful-arrangement-ii",
+    "title": "Beautiful Arrangement II",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-23T02:40:14.822371+00:00"
+  },
+  {
+    "slug": "binary-number-with-alternating-bits",
+    "title": "Binary Number with Alternating Bits",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-23T02:40:14.822371+00:00"
+  },
+  {
+    "slug": "maximum-xor-product",
+    "title": "Maximum Xor Product",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-23T02:40:14.822371+00:00"
   }
 ]
