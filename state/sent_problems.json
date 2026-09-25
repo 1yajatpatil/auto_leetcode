@@ -166,5 +166,47 @@
     "title": "Minimum Adjacent Swaps to Alternate Parity",
     "difficulty": "Medium",
     "sent_at": "2026-09-24T02:45:50.554256+00:00"
+  },
+  {
+    "slug": "domino-and-tromino-tiling",
+    "title": "Domino and Tromino Tiling",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-25T02:38:57.997353+00:00"
+  },
+  {
+    "slug": "sort-integers-by-the-power-value",
+    "title": "Sort Integers by The Power Value",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-25T02:38:57.997353+00:00"
+  },
+  {
+    "slug": "smallest-missing-integer-greater-than-sequential-prefix-sum",
+    "title": "Smallest Missing Integer Greater Than Sequential Prefix Sum",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-25T02:38:57.997353+00:00"
+  },
+  {
+    "slug": "flatten-deeply-nested-array",
+    "title": "Flatten Deeply Nested Array",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-25T02:38:57.997353+00:00"
+  },
+  {
+    "slug": "find-special-substring-of-length-k",
+    "title": "Find Special Substring of Length K",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-25T02:38:57.997353+00:00"
+  },
+  {
+    "slug": "implement-trie-prefix-tree",
+    "title": "Implement Trie (Prefix Tree)",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-25T02:38:57.997353+00:00"
+  },
+  {
+    "slug": "minimum-operations-to-make-array-sum-divisible-by-k",
+    "title": "Minimum Operations to Make Array Sum Divisible by K",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-25T02:38:57.997353+00:00"
   }
 ]
