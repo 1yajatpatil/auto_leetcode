@@ -208,5 +208,47 @@
     "title": "Minimum Operations to Make Array Sum Divisible by K",
     "difficulty": "Easy",
     "sent_at": "2026-09-25T02:38:57.997353+00:00"
+  },
+  {
+    "slug": "find-latest-group-of-size-m",
+    "title": "Find Latest Group of Size M",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-26T02:40:36.238623+00:00"
+  },
+  {
+    "slug": "form-smallest-number-from-two-digit-arrays",
+    "title": "Form Smallest Number From Two Digit Arrays",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-26T02:40:36.238623+00:00"
+  },
+  {
+    "slug": "check-if-matrix-is-x-matrix",
+    "title": "Check if Matrix Is X-Matrix",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-26T02:40:36.238623+00:00"
+  },
+  {
+    "slug": "length-of-the-longest-alphabetical-continuous-substring",
+    "title": "Length of the Longest Alphabetical Continuous Substring",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-26T02:40:36.238623+00:00"
+  },
+  {
+    "slug": "sorting-three-groups",
+    "title": "Sorting Three Groups",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-26T02:40:36.238623+00:00"
+  },
+  {
+    "slug": "most-profit-assigning-work",
+    "title": "Most Profit Assigning Work",
+    "difficulty": "Medium",
+    "sent_at": "2026-09-26T02:40:36.238623+00:00"
+  },
+  {
+    "slug": "find-users-with-valid-e-mails",
+    "title": "Find Users With Valid E-Mails",
+    "difficulty": "Easy",
+    "sent_at": "2026-09-26T02:40:36.238623+00:00"
   }
 ]
